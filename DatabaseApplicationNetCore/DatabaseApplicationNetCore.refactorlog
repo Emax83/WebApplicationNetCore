@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="b0ce9e37-2598-438a-adc5-632d07d9c257" ChangeDateTime="06/04/2021 10:23:39">
+    <Property Name="ElementName" Value="[dbo].[tblPies].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblPies]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PieId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f874e394-fa48-4eb1-9a54-d12e319b3b53" ChangeDateTime="06/04/2021 10:26:35">
+    <Property Name="ElementName" Value="[dbo].[tblCategories].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblCategories]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CategoryId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8f65566e-21d4-4070-8093-64ca49713a71" ChangeDateTime="06/04/2021 13:12:18">
+    <Property Name="ElementName" Value="[dbo].[tblShoppingCart].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblShoppingCart]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ShoppingCartItemId" />
+  </Operation>
+</Operations>

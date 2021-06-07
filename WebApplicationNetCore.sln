@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplicationNetCore", "WebApplicationNetCore\WebApplicationNetCore.csproj", "{6FC46760-58D9-4A1D-992F-9041588A6A55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplicationNetCore", "WebApplicationNetCore\WebApplicationNetCore.csproj", "{6FC46760-58D9-4A1D-992F-9041588A6A55}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DatabaseApplicationNetCore", "DatabaseApplicationNetCore\DatabaseApplicationNetCore.sqlproj", "{4093E873-06FC-42B6-A9BD-82D3FBECB07B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,12 @@ Global
 		{6FC46760-58D9-4A1D-992F-9041588A6A55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FC46760-58D9-4A1D-992F-9041588A6A55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FC46760-58D9-4A1D-992F-9041588A6A55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4093E873-06FC-42B6-A9BD-82D3FBECB07B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4093E873-06FC-42B6-A9BD-82D3FBECB07B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4093E873-06FC-42B6-A9BD-82D3FBECB07B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4093E873-06FC-42B6-A9BD-82D3FBECB07B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4093E873-06FC-42B6-A9BD-82D3FBECB07B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4093E873-06FC-42B6-A9BD-82D3FBECB07B}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,55 @@
+﻿@model PieViewModel
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<div>
+    @if (Model.CurrentCategory != null) {
+    <div>
+        <h1>@Model.CurrentCategory.CategoryName</h1>
+    </div>
+    }
+
+    <div class="row">
+
+        @foreach (var item in Model.Pies)
+        {
+
+            <partial name="_PieCard" model="item" />
+            @*<tr>
+                    <td>
+                        <a asp-controller="pie" asp-action="details" asp-route-id="@item.PieId">@item.Name</a>
+
+                        <a href="@Url.Action("Details", "Pie", new { id = item.PieId })">
+
+                            <img src="@Url.Content(item.ImageThumbnailUrl)" />
+
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShortDescription)
+                    </td>
+                    <td>
+                        @string.Format("{0:c2}", item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsPieOfTheWeek)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PieId })
+
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PieId })
+                    </td>
+                </tr>*@
+        }
+
+    </div>
+    <div>
+        <a asp-controller="Pie" asp-action="index">Back</a>
+    </div>
+</div>
+
+
+

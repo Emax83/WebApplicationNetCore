@@ -9,13 +9,13 @@ using WebApplicationNetCore.Models;
 
 namespace WebApplicationNetCore.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        private readonly ILogger<HomeController> _logger;
+        
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController()
         {
-            _logger = logger;
+            ViewData["DomainName"] = "aaaa";
         }
 
         public IActionResult Index()

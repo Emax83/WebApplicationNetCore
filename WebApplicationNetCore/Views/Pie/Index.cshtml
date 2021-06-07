@@ -1,0 +1,28 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model IEnumerable<Pie> 
+
+@{
+    ViewData["Title"] = "Bethany's Pie Shop";
+}
+
+<partial name="_Carousel" />
+
+<div>
+    <div>
+        <h1>@ViewBag.Message</h1>
+        <h3>Pies of the week</h3>
+    </div>
+    <div class="row">
+        @foreach (var pie in Model)
+        {
+            <partial name="_PieCard" model="pie" />
+        }
+
+    </div>
+    <div>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Pie" asp-action="List">Show me all the pies!</a>
+    </div>
+</div>

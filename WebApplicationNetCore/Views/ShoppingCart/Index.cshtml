@@ -1,0 +1,52 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model ShoppingCartViewModel
+
+@{
+    ViewData["Title"] = "Shopping cart";
+}
+
+<div>
+    <div>
+        <h2>Your Cart</h2>
+        <h4>all the pies in your cart</h4>
+    </div>
+    <div>
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th>selected amouny</th>
+                    <th>Pie</th>
+                    <th class="text-right">Price</th>
+                    <th class="text-right">Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ShoppingCart.ShoppingCartItems)
+                {
+                    <tr>
+                        <td class="text-center">@item.Amount</td>
+                        <td class="text-left">@item.Pie.Name</td>
+                        <td class="text-right">@item.Pie.Price.ToString("c2")</td>
+                        <td class="text-right">@((item.Amount * item.Pie.Price).ToString("c2"))</td>
+                    </tr>
+                }
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Total</td>
+                    <td>
+                        @Model.ShoppingCartTotal.ToString("c2")
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div>
+        <a asp-controller="Pie" asp-action="Index">Home</a>
+        <a asp-controller="Pie" asp-action="list">List</a>
+    </div>
+</div>
