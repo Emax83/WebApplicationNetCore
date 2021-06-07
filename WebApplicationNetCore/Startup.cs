@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -40,13 +42,23 @@ namespace WebApplicationNetCore
             //add using Microsoft.EntityFrameworkCore;
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            //adding identity to site
+            services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<AppDbContext>();
 
             //register our own services //dependency injections
             services.AddScoped<IPieRepository, PieRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
 
             //see static method public static ShoppingCart GetCart(IServiceProvider services)
             services.AddScoped<ShoppingCart>(sp=> ShoppingCart.GetCart(sp));
+
+            services.AddAntiforgery();
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme) //using Microsoft.AspNetCore.Authentication.Cookies;
+                .AddCookie();
+
+            services.AddAuthorization();
 
             //services.AddTransient();
             //services.AddSingleton();
@@ -57,6 +69,9 @@ namespace WebApplicationNetCore
 
             //to use sessions.. the app.UseSession();
             services.AddSession();
+
+            //add razor pages to use identity
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -88,6 +103,9 @@ namespace WebApplicationNetCore
 
             app.UseRouting();
 
+            //middleware by asp.net core identity
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -95,7 +113,9 @@ namespace WebApplicationNetCore
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-    
+
+                //to use identity razor pages
+                endpoints.MapRazorPages();
             });
         }
     }

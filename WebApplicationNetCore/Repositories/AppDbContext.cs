@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +16,10 @@ namespace WebApplicationNetCore.Repositories
     //adding entity framework service --> vedi 1) appsettings.json per la connection.
     //startup.cs -->  services.addDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
     //aggiungi properties DbSets
-    public class AppDbContext : DbContext
+
+
+    //public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<IdentityUser> //identitydb
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -26,6 +31,9 @@ namespace WebApplicationNetCore.Repositories
         public DbSet<Category> Categories { get; set; }
 
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -8,16 +8,16 @@
     <a class="nav-link text-dark dropdown-toggle" data-toggle="dropdown" asp-area="" asp-controller="Pie" asp-action="Index">Pie Shop</a>
 
     <div class="dropdown-menu">
-        <ul class="list-group-flush">
+        <ul class="list-group-flush p-0">
             @foreach (var category in Model)
             {
-            <li class="list-group-item">
-                <a asp-controller="Pie" asp-action="List" asp-route-id="@category.CategoryId">@category.CategoryName</a>
-            </li>
+                <li class="list-group-item">
+                    <a asp-controller="Pie" asp-action="List" asp-route-id="@category.CategoryId">@category.CategoryName</a>
+                </li>
             }
-        <li class="list-group-item">
-            <a asp-controller="Pie" asp-action="List" asp-route-id="">View all pies</a>
-        </li>
+            <li class="list-group-item">
+                <a asp-controller="Pie" asp-action="List" asp-route-id="">View all pies</a>
+            </li>
         </ul>
     </div>
 </li>

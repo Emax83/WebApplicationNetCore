@@ -12,17 +12,23 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+            <partial name="_LoginPartial" />
+
             <ul class="navbar-nav flex-grow-1">
                 <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                 </li>
                 @*<li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Pie" asp-action="Index">Pie Shop</a>
-                </li>*@
+                <a class="nav-link text-dark" asp-area="" asp-controller="Pie" asp-action="Index">Pie Shop</a>
+            </li>*@
 
                 @await Component.InvokeAsync("CategoryMenu")
 
                 @await Component.InvokeAsync("ShoppingCartSummary")
+
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Contact" asp-action="Index">Contact</a>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
@@ -31,6 +37,9 @@
 
 
             </ul>
+
+
+
         </div>
     </div>
 </nav>
